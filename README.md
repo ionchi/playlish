@@ -8,9 +8,7 @@ This project was completed as part of a group learning exercise, experimenting w
 
 ## Demo
 
-<!--
-Demo url
--->
+[https://playlish-vue.netlify.app](https://playlish-vue.netlify.app)
 
 ## Main Features
 
