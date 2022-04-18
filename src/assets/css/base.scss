@@ -1,0 +1,99 @@
+:root {
+  --brand-color-1: #E84545;
+  --brand-color-2: #903749;
+  --brand-color-3: #53354A;
+  --brand-color-4: #2B264A;
+
+  --white-color: #FFFFFF;
+  --black-color: #131414;
+
+  --color-background: var(--brand-color-4);
+  --color-text: var(--white-color);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-content {
+  width: 1080px;
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+  &.full-page {
+    min-height: calc(100vh - 56px);
+  }
+}
+
+.base-button {
+  color: var(--brand-color-4);
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  background-color: var(--white-color);
+  border-radius: 25px;
+  opacity: 1;
+  &.icon {
+    height: 48px;
+    width: 48px;
+    padding: 0;
+    border-radius: 50%;
+    img {
+      height: 32px;
+      width: 32px;
+    }
+  }
+  &.small {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+  &.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  &:not(.disabled):hover {
+    background-color: rgb(211, 211, 211) !important;
+    transition: background-color 200ms ease;
+  }
+}
+
+// ROUTE TRANSITION
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.route-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.fade-enter-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-leave-active {
+  transition: opacity 0s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
