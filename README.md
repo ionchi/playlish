@@ -28,9 +28,9 @@ For this project, the custom API endpoints are:
 - On the details page, the user can see some detailed info about the show and a list of the last episodes.
 - User can click on the "External link" button or the title of each episode and be redirected to the podcast hosting site where they can view and listen to the podcast episodes.
 
-![Main page - Discover](https://raw.githubusercontent.com/ionchi/playlish/master/public/demo/discover.png)
+![Main page - Discover](https://raw.githubusercontent.com/ionchi/playlish/main/public/demo/discover.png)
 
-![Details](https://raw.githubusercontent.com/ionchi/playlish/master/public/demo/details.png)
+![Details](https://raw.githubusercontent.com/ionchi/playlish/main/public/demo/details.png)
 
 ### Search
 - User can click on the search button positioned in the site header.
@@ -38,7 +38,7 @@ For this project, the custom API endpoints are:
 - User can type a search string and wait for the most relevant results.
 - User can click on the result and be redirected to the details page.
 
-![Search](https://raw.githubusercontent.com/ionchi/playlish/master/public/demo/search.png)
+![Search](https://raw.githubusercontent.com/ionchi/playlish/main/public/demo/search.png)
 
 ### Add to favourites
 - On the show's details page, there is a button with a heart icon.
@@ -49,7 +49,7 @@ For this project, the custom API endpoints are:
 
 N.B. Favourites are added only in local storage, in the current user's browser as there isn't a sign-in feature.
 
-![Favourites](https://raw.githubusercontent.com/ionchi/playlish/master/public/demo/favourites.png)
+![Favourites](https://raw.githubusercontent.com/ionchi/playlish/main/public/demo/favourites.png)
 
 ## Frontend dependencies
 
