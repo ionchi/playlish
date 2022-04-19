@@ -26,7 +26,7 @@ For this project, the custom API endpoints are:
 - On the main page, the user is presented with the current trending podcasts.
 - User can click on a show image or title and be redirected to the show details page.
 - On the details page, the user can see some detailed info about the show and a list of the last episodes.
-- User can click on the "External link" button or the title of each episode and be redirected to the podcast hosting site where they can view and listen to the podcast episodes.
+- User can click on the "Show more" button or the title of each episode and be redirected to the podcast hosting site where they can view and listen to the podcast episodes.
 
 ![Main page - Discover](https://raw.githubusercontent.com/ionchi/playlish/main/public/demo/discover.png)
 
@@ -34,7 +34,7 @@ For this project, the custom API endpoints are:
 
 ### Search
 - User can click on the search button positioned in the site header.
-- An overlay will transition, with an input field.
+- User will be redirected to the search page, with a focused input field.
 - User can type a search string and wait for the most relevant results.
 - User can click on the result and be redirected to the details page.
 
@@ -43,8 +43,8 @@ For this project, the custom API endpoints are:
 ### Add to favourites
 - On the show's details page, there is a button with a heart icon.
 - User can click and add the show to a favourites list.
-- User can navigate to the favourites page from the navbar.
-- User can see all their favourites shows.
+- User can navigate to the favourites' page from the navbar.
+- User can see all their favourite shows.
 - User can remove a favourite show from the details page, by clicking again on the heart button.
 
 N.B. Favourites are added only in local storage, in the current user's browser as there isn't a sign-in feature.
@@ -54,6 +54,7 @@ N.B. Favourites are added only in local storage, in the current user's browser a
 ## Frontend dependencies
 
 - Vue 3
+- Vueuse utilities
 - Typescript
 - Tailwindcss
 - GASP animations
