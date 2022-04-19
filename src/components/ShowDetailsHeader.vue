@@ -5,7 +5,7 @@
       :src="showDetails.image"
       :alt="showDetails.title"
       src-placeholder="/podcast_placeholder.png"
-      class="show-tile rounded-full mb-6"
+      class="show-tile rounded-2xl mb-6"
     />
     <div v-else class="animate-pulse">
       <div class="rounded-full bg-slate-700 tile-placeholder mb-6"></div>
@@ -24,11 +24,18 @@
         :class="[loading && 'disabled']"
         :title="'External link - ' + showDetails.link"
         type="button"
-        class="base-button bg-white font-bold"
+        class="base-button bg-white font-bold flex items-center justify-between"
         aria-label="to podcast page"
         @click="externalLinkToPodcast"
       >
-        External Link
+        <span>
+          Show more
+        </span>
+        <img
+          src="@/assets/icons/link.svg"
+          alt="external link icon"
+          class="icon-link ml-2"
+        />
       </button>
       <button
         :class="[
@@ -114,5 +121,9 @@ const toggleFavourites = () => {
       background-color: #fb2f2f !important;
     }
   }
+}
+.icon-link {
+  height: 16px;
+  width: 16px;
 }
 </style>

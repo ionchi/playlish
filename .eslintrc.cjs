@@ -12,6 +12,7 @@ module.exports = {
     "vue/setup-compiler-macros": true
   },
 	rules: {
+		'@typescript-eslint/no-explicit-any': 'off',
 		'comma-dangle': ['error', 'never'],
 		'no-console': 'off',
 		'object-curly-spacing': [1, 'always'],

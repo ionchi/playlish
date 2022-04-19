@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import DiscoverView from '../views/DiscoverView.vue';
 import ShowDetailsView from '../views/ShowDetailsView.vue';
 import FavouritesView from '../views/FavouritesView.vue';
+import SearchView from '../views/SearchView.vue';
 
 
 declare module 'vue-router' {
@@ -26,6 +27,14 @@ const router = createRouter({
       path: '/favourites',
       name: 'favourites',
       component: FavouritesView,
+      meta: {
+        showNav: true
+      }
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchView,
       meta: {
         showNav: true
       }

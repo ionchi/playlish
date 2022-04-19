@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-start flex-wrap">
+    <template v-if="loading">
     <div
-      v-if="loading"
       v-for="show of loadingItems"
       :key="show.id"
       class="mb-4 basis-1/2 sm:basis-1/3 md:basis-1/5 lg:basis-1/6 p-3"
@@ -11,6 +11,7 @@
       </div>
       <div class="h-2 bg-slate-700 rounded w-20"></div>
     </div>
+    </template>
     <transition-group
       v-else
       appear
@@ -51,7 +52,7 @@ import { $ref } from "vue/macros";
 import VLazyImage from "v-lazy-image";
 import gsap from 'gsap';
 
-const props = defineProps<{
+defineProps<{
   shows: Show[]
   loading: boolean
   dark: boolean

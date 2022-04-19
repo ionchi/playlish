@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white discover-view">
+  <div class="text-white safe-area">
     <div class="text-2xl mb-6">
       Trending
     </div>
@@ -42,10 +42,4 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-.discover-view {
-  padding: 80px 90px;
-  @media screen and (max-width: 960px) {
-    padding: 20px 0;
-  }
-}
 </style>

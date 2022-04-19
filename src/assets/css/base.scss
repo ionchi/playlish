@@ -33,6 +33,12 @@ body {
   &.full-page {
     min-height: calc(100vh - 56px);
   }
+  .safe-area {
+    padding: 80px 90px;
+    @media screen and (max-width: 960px) {
+      padding: 20px 0;
+    }
+  }
 }
 
 .base-button {

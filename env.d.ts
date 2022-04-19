@@ -1,6 +1,7 @@
 /// <reference types="vite/client" />
 declare module 'v-lazy-image';
 declare module '@/plugins/supabase';
+declare module '@vueuse/router';
 
 interface ImportMetaEnv {
   readonly VITE_TRENDING: string

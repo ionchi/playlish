@@ -6,10 +6,16 @@
         episode.link && 'cursor-pointer',
         episode.link && 'hover:text-slate-400'
       ]"
-      class="text-lg font-bold mb-4 transition-colors w-fit"
+      class="text-lg font-bold mb-4 transition-colors w-fit flex items-center title-link"
       @click="toExternalLinkEpisode"
     >
       {{ episode.title }}
+      <img
+        v-if="episode.link"
+        src="@/assets/icons/link.svg"
+        alt="external link icon"
+        class="icon-link ml-2"
+      />
     </div>
     <div class="text-sm mb-4 text-slate-300">
       {{ visibleDescription }}
@@ -45,5 +51,18 @@ const toExternalLinkEpisode = () => {
 </script>
 
 <style scoped lang="scss">
+.title-link {
+  .icon-link {
+    height: 16px;
+    width: 16px;
+    filter: invert(100%);
+    transition: all 250ms ease;
+  }
+  &:hover {
+    .icon-link {
+      filter: invert(70%);
+    }
+  }
+}
 
 </style>

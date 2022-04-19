@@ -10,6 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vueuse/core": "8.2.6",
+    "@vueuse/router": "8.2.6",
     "axios": "0.26.1",
     "gsap": "3.10.3",
     "v-lazy-image": "2.1.1",
