@@ -8,7 +8,7 @@
         v-for="episode of episodes"
         :key="episode.id"
         :episode="episode"
-        class="py-4 px-8"
+        class="py-4 md:px-8"
       />
     </div>
   </div>

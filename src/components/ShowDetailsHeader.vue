@@ -4,8 +4,9 @@
       v-if="!loading && showDetails.image"
       :src="showDetails.image"
       :alt="showDetails.title"
-      src-placeholder="/podcast_placeholder.png"
+      :src-placeholder="imgPlaceholder"
       class="show-tile rounded-2xl mb-6"
+      @error="replaceByDefault"
     />
     <div v-else class="animate-pulse">
       <div class="rounded-full bg-slate-700 tile-placeholder mb-6"></div>
@@ -102,8 +103,14 @@ const toggleFavourites = () => {
     favourites = PodcastService.getFavourites();
     toast.success('Added to favourites', { timeout: 3000 });
   }
-
 };
+
+const imgPlaceholder = '/podcast_placeholder.png';
+const replaceByDefault = (event: Event) => {
+  if (event instanceof HTMLImageElement) {
+    event.src= imgPlaceholder;
+  }
+}
 </script>
 
 <style scoped lang="scss">

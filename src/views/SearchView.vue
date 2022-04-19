@@ -103,6 +103,7 @@ const goToDetails = (feedId: number) => {
 
 const clearSearch = () => {
   searchString.value = '';
+  results = [];
   focused.value = true;
 };
 </script>

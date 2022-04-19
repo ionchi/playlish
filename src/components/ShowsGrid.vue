@@ -28,9 +28,10 @@
           :src="show.image"
           :alt="show.title"
           :class="[dense && 'dense']"
-          src-placeholder="/podcast_placeholder.png"
-          class="show-tile rounded-2xl mb-3 cursor-pointer"
+          :src-placeholder="imgPlaceholder"
+          class="show-tile rounded-2xl mb-3 cursor-pointer aspect-square"
           @click="$emit('toDetails', show.id)"
+          @error="replaceByDefault"
         />
         <div
           :class="[
@@ -63,6 +64,7 @@ defineEmits<{
   (e: 'toDetails', feedId: number): void
 }>();
 
+const imgPlaceholder = '/podcast_placeholder.png';
 const loadingItems = $ref([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]);
 
 // Transition
@@ -83,12 +85,19 @@ const enter = (el: Element) => {
     });
   }
 };
+
+const replaceByDefault = (event: Event) => {
+  if (event instanceof HTMLImageElement) {
+    event.src= imgPlaceholder;
+  }
+}
 </script>
 
 <style scoped lang="scss">
 .show-tile {
   width: 100%;
   max-width: 200px;
+  max-height: 200px;
   transition: transform 250ms ease;
   &.dense {
     max-width: 120px !important;
