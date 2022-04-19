@@ -1,25 +1,27 @@
 <template>
   <div class="text-white safe-area">
-    <div class="search-box">
-      <input
-        ref="searchInput"
-        class="search-input"
-        v-model="searchString"
-        placeholder="type here"
-        type="search"
-      />
-      <transition name="fade">
-        <img
-          v-if="searchString && !typing"
-          src="@/assets/icons/close.svg"
-          alt="close-icon"
-          class="clear-btn"
-          title="Clear search"
-          @click="clearSearch"
+    <transition name="fade" mode="out-in">
+      <div v-show="transitionEnded" class="search-box">
+        <input
+          ref="searchInput"
+          class="search-input"
+          v-model="searchString"
+          placeholder="type here..."
+          type="search"
         />
-      </transition>
-    </div>
-    <div class="results-box mt-5">
+        <transition name="fade">
+          <img
+            v-if="searchString && !typing"
+            src="@/assets/icons/close.svg"
+            alt="close-icon"
+            class="clear-btn"
+            title="Clear search"
+            @click="clearSearch"
+          />
+        </transition>
+      </div>
+    </transition>
+    <div class="mt-5">
       <transition-group name="fade" mode="in-out">
         <shows-grid
           v-if="!typing && !loading && results.length > 0"
@@ -41,6 +43,7 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, ref, watch } from "vue";
 import { useRouteQuery } from '@vueuse/router';
 import { watchDebounced } from '@vueuse/core';
 import { useFocus } from '@vueuse/core';
@@ -49,12 +52,12 @@ import type { Show } from "@/types";
 import { useRouter } from "vue-router";
 import { PodcastService } from "@/service/pocast.service";
 import ShowsGrid from "@/components/ShowsGrid.vue";
-import { onMounted, ref, watch } from "vue";
 
 let searchString = useRouteQuery('q');
 let results = $ref([] as Show[]);
 let loading = $ref(false);
 let typing = $ref(false);
+let transitionEnded = $ref(false);
 
 const router = useRouter();
 
@@ -86,7 +89,12 @@ watchDebounced(
 
 onMounted(async () => {
   await search();
-  focused.value = true;
+  setTimeout(() => {
+    transitionEnded = true;
+    setTimeout(() => {
+      focused.value = true;
+    }, 200);
+  }, 300);
 });
 
 const goToDetails = (feedId: number) => {
@@ -107,7 +115,6 @@ const clearSearch = () => {
     border: solid var(--white-color);
     border-width: 0 0 1px 0;
     color: var(--white-color);
-    flex: 1 0 auto;
     font-size: 2rem;
     height: 2rem;
     width: 100%;
@@ -116,10 +123,10 @@ const clearSearch = () => {
     padding: 2rem 3rem 2rem 1rem;
   }
   .clear-btn {
+    position: absolute;
     cursor: pointer;
     height: 1rem;
     width: 1rem;
-    position: absolute;
     top: 1.7rem;
     right: 1rem;
     filter: invert(100%);
